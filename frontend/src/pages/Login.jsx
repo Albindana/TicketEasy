@@ -1,39 +1,19 @@
-import { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Login() {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Implement login logic
-    console.log('Login attempt:', formData);
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
+const Login = () => {
   return (
     <div className="container">
-      <div className="card" style={{ maxWidth: '400px', margin: '0 auto' }}>
-        <h2>Login</h2>
-        <form onSubmit={handleSubmit}>
+      <div className="card" style={{ maxWidth: '400px', margin: '2rem auto' }}>
+        <h2 className="section-title">Login</h2>
+        <form>
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
               type="email"
               id="email"
-              name="email"
               className="form-control"
-              value={formData.email}
-              onChange={handleChange}
-              required
+              placeholder="Enter your email"
             />
           </div>
           <div className="form-group">
@@ -41,20 +21,20 @@ function Login() {
             <input
               type="password"
               id="password"
-              name="password"
               className="form-control"
-              value={formData.password}
-              onChange={handleChange}
-              required
+              placeholder="Enter your password"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
             Login
           </button>
         </form>
+        <p style={{ textAlign: 'center', marginTop: '1rem' }}>
+          Don't have an account? <Link to="/register">Register here</Link>
+        </p>
       </div>
     </div>
   );
-}
+};
 
 export default Login; 

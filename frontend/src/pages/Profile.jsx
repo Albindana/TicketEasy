@@ -1,37 +1,42 @@
-function Profile() {
-  // TODO: Implement user profile data fetching
-  const mockUserData = {
-    name: 'John Doe',
-    email: 'john@example.com',
-    upcomingEvents: [
-      { id: 1, name: 'Concert in the Park', date: '2024-07-15' },
-      { id: 2, name: 'Theater Show', date: '2024-07-20' }
-    ]
-  };
+import React from 'react';
 
+const Profile = () => {
   return (
     <div className="container">
-      <div className="card">
-        <h2>Profile</h2>
-        <div className="profile-info">
-          <p><strong>Name:</strong> {mockUserData.name}</p>
-          <p><strong>Email:</strong> {mockUserData.email}</p>
-        </div>
-      </div>
-
-      <div className="card">
-        <h3>Upcoming Events</h3>
-        <div className="grid">
-          {mockUserData.upcomingEvents.map(event => (
-            <div key={event.id} className="card">
-              <h4>{event.name}</h4>
-              <p>Date: {event.date}</p>
+      <div className="card" style={{ maxWidth: '800px', margin: '2rem auto' }}>
+        <h2 className="section-title">Profile</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '2rem' }}>
+          <div>
+            <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+              <img
+                src="https://placehold.co/150x150"
+                alt="Profile"
+                style={{ borderRadius: '50%', marginBottom: '1rem' }}
+              />
+              <h3>John Doe</h3>
+              <p>john.doe@example.com</p>
             </div>
-          ))}
+          </div>
+          <div>
+            <h3>Account Information</h3>
+            <div className="form-group">
+              <label>Full Name</label>
+              <input type="text" className="form-control" value="John Doe" readOnly />
+            </div>
+            <div className="form-group">
+              <label>Email</label>
+              <input type="email" className="form-control" value="john.doe@example.com" readOnly />
+            </div>
+            <div className="form-group">
+              <label>Member Since</label>
+              <input type="text" className="form-control" value="January 2024" readOnly />
+            </div>
+            <button className="btn btn-primary">Edit Profile</button>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Profile; 

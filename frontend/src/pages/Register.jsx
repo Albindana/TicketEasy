@@ -1,41 +1,19 @@
-import { useState } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Register() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: ''
-  });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Implement registration logic
-    console.log('Registration attempt:', formData);
-  };
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
+const Register = () => {
   return (
     <div className="container">
-      <div className="card" style={{ maxWidth: '400px', margin: '0 auto' }}>
-        <h2>Register</h2>
-        <form onSubmit={handleSubmit}>
+      <div className="card" style={{ maxWidth: '400px', margin: '2rem auto' }}>
+        <h2 className="section-title">Register</h2>
+        <form>
           <div className="form-group">
             <label htmlFor="name">Full Name</label>
             <input
               type="text"
               id="name"
-              name="name"
               className="form-control"
-              value={formData.name}
-              onChange={handleChange}
-              required
+              placeholder="Enter your full name"
             />
           </div>
           <div className="form-group">
@@ -43,11 +21,8 @@ function Register() {
             <input
               type="email"
               id="email"
-              name="email"
               className="form-control"
-              value={formData.email}
-              onChange={handleChange}
-              required
+              placeholder="Enter your email"
             />
           </div>
           <div className="form-group">
@@ -55,11 +30,8 @@ function Register() {
             <input
               type="password"
               id="password"
-              name="password"
               className="form-control"
-              value={formData.password}
-              onChange={handleChange}
-              required
+              placeholder="Enter your password"
             />
           </div>
           <div className="form-group">
@@ -67,20 +39,20 @@ function Register() {
             <input
               type="password"
               id="confirmPassword"
-              name="confirmPassword"
               className="form-control"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
+              placeholder="Confirm your password"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>
             Register
           </button>
         </form>
+        <p style={{ textAlign: 'center', marginTop: '1rem' }}>
+          Already have an account? <Link to="/login">Login here</Link>
+        </p>
       </div>
     </div>
   );
-}
+};
 
 export default Register; 

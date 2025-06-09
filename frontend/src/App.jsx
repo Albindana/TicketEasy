@@ -1,11 +1,12 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import EventSearch from './pages/EventSearch';
-import './styles/App.css';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/events" element={<EventSearch />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );
