@@ -1,12 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-import Home from './components/Home/Home';
+import Home from './pages/Home';
+import EventDetails from './pages/EventDetails';
+import Checkout from './pages/Checkout';
+import Contact from './components/Contact/Contact';
+import Pricing from './components/Pricing/Pricing';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import Profile from './pages/Profile';
 import EventSearch from './pages/EventSearch';
+import Footer from './components/Footer/Footer';
+import './App.css';
 
 function App() {
   return (
@@ -16,10 +20,13 @@ function App() {
         <main className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/events" element={<EventSearch />} />
+            <Route path="/event/:id" element={<EventDetails />} />
+            <Route path="/checkout/:id" element={<Checkout />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/events" element={<EventSearch />} />
           </Routes>
         </main>
         <Footer />
